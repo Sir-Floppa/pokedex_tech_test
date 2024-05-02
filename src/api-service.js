@@ -3,10 +3,25 @@ const apiUrl = "https://pokeapi.co/api/v2/"
 const api = {
   // Obtener un pokemon por ID
   async getPokemonById(id) {
-    let res = await fetch(`${apiUrl}/pokemon/${id}`);
-    let data = await res.json();
+    // De moment no he encontrado forma de hallar el numero de pokemons
+    // inicialmente pense que era el count que devuelve la query pero son menos
+    if(id < 1026 && id > 0) {
+      let res = await fetch(`${apiUrl}/pokemon/${id}`);
+      let data = await res.json();
+  
+      return data;
+    }
+    else {
+      return
+    }
+  },
 
-    return data;
+  async getRandomPokemon() {
+    // genera un Id aleatorio entre 1 y 1026
+    let newPokemonId = Math.floor(Math.random() * 1026 + 1);
+    let randomPokemon = this.getPokemonById(newPokemonId);
+
+    return randomPokemon;
   }
 }
 

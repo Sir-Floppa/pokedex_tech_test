@@ -9,9 +9,31 @@ import SearchResult from './components/SearchResult.vue';
 
 export default {
   name: 'App',
+  created() {
+    this.getRandom5();
+  },
+  data() {
+    return {
+      pokemonList: [],
+    }
+  },
   components: {
     SearchBar,
     SearchResult
+  },
+  methods: {
+    async getRandom5() {
+      // Vacia la lista en caso de que haya una busqueda previa
+      this.pokemonList = [];
+
+      while (this.pokemonList.length < 5){
+        let newPoke = await this.$api.getRandomPokemon();
+        this.pokemonList.push(newPoke);
+      }
+        
+      
+      console.log('RANDOM', this.pokemonList);
+    }
   }
 }
 </script>
