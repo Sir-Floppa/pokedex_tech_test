@@ -1,26 +1,31 @@
 <template>
   <main>
     <pokemon-card
+    id="4"
     name="charmander"
     sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
     ></pokemon-card>
 
     <pokemon-card
+    id="4"
     name="charmander"
     sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
     ></pokemon-card>
 
     <pokemon-card
+    id="4"
     name="charmander"
     sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
     ></pokemon-card>
 
     <pokemon-card
+    id="4"
     name="charmander"
     sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
     ></pokemon-card>
 
     <pokemon-card
+    id="4"
     name="charmander"
     sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
     ></pokemon-card>

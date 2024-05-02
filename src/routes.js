@@ -6,7 +6,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     { path: '/:tipo?', component: SearchResult },
-    { path: '/visualizar/:nombre', component: VisualizePokemon}
+    { path: '/visualizar/:id', component: VisualizePokemon}
   ]
 })
 

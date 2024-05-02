@@ -28,5 +28,17 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
+
+  img {
+    /* Estos estilos hacen que el sprite escale sin suavizado en todos los navegadores */
+    /* https://stackoverflow.com/questions/14068103/disable-antialising-when-scaling-images */
+    image-rendering: optimizeSpeed;            
+    image-rendering: -moz-crisp-edges;         
+    image-rendering: -o-crisp-edges;           
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;                
+    image-rendering: optimize-contrast;        
+    -ms-interpolation-mode: nearest-neighbor;
+  }
 }
 </style>
