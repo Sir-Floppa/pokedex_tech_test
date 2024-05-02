@@ -1,26 +1,31 @@
 <template>
+  <search-bar></search-bar>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchBar from './components/SearchBar.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SearchBar,
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Ruda:400,900');
+* {
+  font-family: 'Ruda', sans-serif;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
 }
 </style>
