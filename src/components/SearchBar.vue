@@ -32,7 +32,7 @@ export default {
     // Emite una senal que genera los nuevos Pokemon aleatorios.
     newRandom() {
       this.$emit('newRandom');
-    }
+    },
 
     // Redirige a la ruta de busqueda.
     searchType() {
