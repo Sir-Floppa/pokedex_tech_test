@@ -27,6 +27,13 @@ section {
 
   border-radius: 1rem;
 
+  &:hover {
+    cursor: pointer;
+    img {
+      width: 110%;
+    }
+  }
+
   .name-container {
     height: 6rem;
     border-radius: 0 0 1rem 1rem;
@@ -44,7 +51,10 @@ section {
   }
 
   img {
-    /* Estos estilos hacen que el sprite escale sin suavizado */
+    width: 100%;
+    transition: width .25s;
+
+    /* Estos estilos hacen que el sprite escale sin suavizado en todos los navegadores */
     /* https://stackoverflow.com/questions/14068103/disable-antialising-when-scaling-images */
     image-rendering: optimizeSpeed;            
     image-rendering: -moz-crisp-edges;         
