@@ -26,6 +26,34 @@ npm install jest --save-dev
 
 ![](./README_Imgs/vistaVisualizacion.png)
 
+### Tests
+
+Para probar la conexión a la API desarrollé los siguientes tests:
+
+```js
+it('obtener pokemon por id: 1', async () => {
+  let poke = await api.getPokemonById(1);
+
+  expect(poke).toEqual(bulbasaur);
+})
+
+it('obtener pokemon por id: 1026', async () => {
+  let poke = await api.getPokemonById(1026);
+
+  expect(poke).toEqual(undefined);
+})
+
+it('obtener pokemon por id: 0', async () => {
+  let poke = await api.getPokemonById(0);
+
+  expect(poke).toEqual(undefined);
+})
+```
+
+En estos se prueban los casos para id=1, cuyo resultado guardé en el archivo *bulbasaur.js*, y los casos límite de 1026 y 0, que son valores que se salen del rango de la API. Intenté obtener el 1026 programáticamente pero la API no me entrega ninguna manera de hacerlo, así que de momento está hardcodeado.
+
+No hice uno para la selección aleatoria porque esa función solo llama a la funcion de conseguir con Id con un Id aleatorio. Además, no se puede predefinir una salida para algo aleatorio.
+
 
 # Configuración del Proyecto 
 

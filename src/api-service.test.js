@@ -12,3 +12,9 @@ it('obtener pokemon por id: 1026', async () => {
 
   expect(poke).toEqual(undefined);
 })
+
+it('obtener pokemon por id: 0', async () => {
+  let poke = await api.getPokemonById(0);
+
+  expect(poke).toEqual(undefined);
+})

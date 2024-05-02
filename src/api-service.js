@@ -22,6 +22,14 @@ const api = {
     let randomPokemon = this.getPokemonById(newPokemonId);
 
     return randomPokemon;
+  },
+
+  // Consigue una habilidad con la URL
+  async getAbilityByUrl(url) {
+    let res = await fetch(url);
+    let data = await res.json();
+
+    return data
   }
 }
 

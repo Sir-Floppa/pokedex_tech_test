@@ -1,32 +1,22 @@
 <template>
-<div class="pokemon-view">
-  <h1>4. Charmander</h1>
-  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="">
-
+<div class="pokemon-view" v-if="pokemon">
+  <h1>{{ pokemon.id }}. {{ pokemon.name.toUpperCase() }}</h1>
+  <img :src="pokemon.sprites.front_default" alt="">
 
   <div class="type-card-container">
-    <span class="type-card">
-      Fuego
+    <span class="type-card" v-for="type in pokemon.types">
+      {{ type.type.name }}
     </span>
   </div>
 
   
   <div class="abilities-container">
-    <div class="ability">
+    <div class="ability" v-for="ability in abilityList">
       <div class="name-container">
-        <h1>Solar Power</h1>
+        <h1>{{ ability.name.toUpperCase() }}</h1>
       </div>
       <p>
-        During strong sunlight, this Pokémon has 1.5× its Special Attack but takes 1/8 of its maximum HP in damage after each turn.
-      </p>
-    </div>
-    
-    <div class="ability">
-      <div class="name-container">
-        <h1>Solar Power</h1>
-      </div>
-      <p>
-        During strong sunlight, this Pokémon has 1.5× its Special Attack but takes 1/8 of its maximum HP in damage after each turn.
+        {{ getEffectByLang(ability.effect_entries) }}
       </p>
     </div>
   </div>
@@ -36,7 +26,31 @@
 <script>
 
 export default {
-  
+  data() {
+    return {
+      id: 0,
+      pokemon: undefined,
+      abilityList: [],
+      lang: 'en'
+    }
+  },
+  async created() {
+    this.id = this.$route.params.id;
+    this.pokemon = await this.$api.getPokemonById(this.id);
+
+    // Pobla la lista de habilidades
+    this.pokemon.abilities.forEach(async ability => {
+      let newAbility = await this.$api.getAbilityByUrl(ability.ability.url);
+      this.abilityList.push(newAbility);
+    });
+  },
+  methods: {
+    getEffectByLang(entries) {
+      let ans = entries.filter(entry => entry.language.name == this.lang)
+      console.log(ans);
+      return ans[0].short_effect;
+    }
+  }
 }
 </script>
 
@@ -85,6 +99,8 @@ export default {
       filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 0.5));
       background-color: white;
       border-radius: 1rem;
+      min-width: min-content;
+
 
       .name-container {
         height: 6rem;
@@ -103,6 +119,7 @@ export default {
       h1 {
         color: white;
         background-color: #ef5350;
+        padding: 1rem;
       }
     }
   }
