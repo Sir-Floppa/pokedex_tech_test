@@ -1,19 +1,34 @@
-# pokedex_tech_test
+# Pokedex Tech Test
 
-## Project setup
+## Requerimientos
+- Ver 5 Pokémon aleatorios y refrescar para mostrar nuevos.
+- Buscar Pokémon por tipo.
+- Ver Pokémon en detalle al hacerle click.
+  - También debería poder seleccionar el idioma entre una lista de idioma.
+- Responsive.
+- Test unitarios en las funciones de Pokémon aleatorios, búsqueda por tipo y visualización de detalles
+
+## Decisiones de Diseño
+
+Se usa Jest para la suit de testing, guardándola como una dependencia de desarrollo.
+
+```
+npm install jest --save-dev
+```
+
+# Configuración del Proyecto 
+
+## Instalación de Dependencias
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Ejecutar Entorno de Desarrollo
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilado Para Producción
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
