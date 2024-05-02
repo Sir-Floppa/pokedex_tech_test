@@ -1,6 +1,6 @@
 <template>
   <search-bar></search-bar>
-  <search-result></search-result>
+  <router-view></router-view>
 </template>
 
 <script>

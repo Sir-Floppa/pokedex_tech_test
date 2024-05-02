@@ -34,17 +34,16 @@ export default {
   components: {
     PokemonCard
   }
-  
 }
 
 </script>
 
 <style>
 main {
-  width: 100%;
+  width: 80%;
   display: flex;
-  gap: 2rem;
-  margin: 2rem;
+  gap: 3rem;
+  margin: 1rem;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
