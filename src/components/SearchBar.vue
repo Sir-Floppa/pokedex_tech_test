@@ -5,21 +5,45 @@
     <form action="">
       <div class="form-control">
         <label for="tipo">Tipo</label>
-        <select name="tipo" id="">
+        <select name="tipo" id="" v-model="type">
   
-          <option value="prueba">Prueba</option>
+          <option value="prueba1">Prueba1</option>
+          <option value="prueba2">Prueba2</option>
+          <option value="prueba3">Prueba3</option>
+          <option value="prueba4">Prueba4</option>
   
         </select>
       </div>
     </form>
 
-    <button>Buscar</button>
+    <button @click="searchType">Buscar</button>
 
   </nav>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      type: ''
+    }
+  },
+  methods: {
+    // Emite una senal que genera los nuevos Pokemon aleatorios.
+    newRandom() {
+      this.$emit('newRandom');
+    }
+
+    // Redirige a la ruta de busqueda.
+    searchType() {
+      if(this.type != '') {
+        this.$router.push(`/${this.type}`)
+      }
+      else{
+        alert('Seleccione un tipo válido.')
+      }
+    }
+  }
 
 }
 </script>
