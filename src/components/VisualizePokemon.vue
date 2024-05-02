@@ -1,5 +1,5 @@
 <template>
-<main>
+<div class="pokemon-view">
   <h1>4. Charmander</h1>
   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="">
 
@@ -30,9 +30,7 @@
       </p>
     </div>
   </div>
-</main>
-
-
+</div>
 </template>
 
 <script>
@@ -43,10 +41,11 @@ export default {
 </script>
 
 <style>
-main {
+.pokemon-view {
+  max-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column !important;
+  justify-content: space-around;
   align-items: center;
 
   h1 {

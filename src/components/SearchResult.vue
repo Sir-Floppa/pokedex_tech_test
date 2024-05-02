@@ -1,35 +1,35 @@
 <template>
-  <main>
-    <pokemon-card
-    id="4"
-    name="charmander"
-    sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-    ></pokemon-card>
+<main>
+  <pokemon-card
+  id="4"
+  name="charmander"
+  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  ></pokemon-card>
 
-    <pokemon-card
-    id="4"
-    name="charmander"
-    sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-    ></pokemon-card>
+  <pokemon-card
+  id="4"
+  name="charmander"
+  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  ></pokemon-card>
 
-    <pokemon-card
-    id="4"
-    name="charmander"
-    sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-    ></pokemon-card>
+  <pokemon-card
+  id="4"
+  name="charmander"
+  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  ></pokemon-card>
 
-    <pokemon-card
-    id="4"
-    name="charmander"
-    sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-    ></pokemon-card>
+  <pokemon-card
+  id="4"
+  name="charmander"
+  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  ></pokemon-card>
 
-    <pokemon-card
-    id="4"
-    name="charmander"
-    sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-    ></pokemon-card>
-  </main>
+  <pokemon-card
+  id="4"
+  name="charmander"
+  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  ></pokemon-card>
+</main>
 </template>
 
 <script>
@@ -45,8 +45,9 @@ export default {
 
 <style>
 main {
-  width: 80%;
+  width: 75%;
   display: flex;
+  flex-direction: row !important;
   gap: 3rem;
   margin: 1rem;
   flex-wrap: wrap;

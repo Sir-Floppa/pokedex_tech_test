@@ -1,5 +1,5 @@
 <template>
-<section>
+<section @click="$router.push(`./visualizar/${id}`)">
   <img :src="sprite" :alt="`${name} sprite`">
   <div class="name-container">
     <h1>
@@ -30,7 +30,7 @@ section {
   &:hover {
     cursor: pointer;
     img {
-      width: 110%;
+      width: 110% !important;
     }
   }
 
