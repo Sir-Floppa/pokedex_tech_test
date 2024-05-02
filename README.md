@@ -16,6 +16,17 @@ Se usa Jest para la suit de testing, guardándola como una dependencia de desarr
 npm install jest --save-dev
 ```
 
+### Interfaz
+
+#### Vista de Búsqueda
+
+![](./README_Imgs/vistaBusqueda.png)
+
+#### Vista de Visualización Específica
+
+![](./README_Imgs/vistaVisualizacion.png)
+
+
 # Configuración del Proyecto 
 
 ## Instalación de Dependencias
