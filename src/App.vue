@@ -1,15 +1,17 @@
 <template>
   <search-bar></search-bar>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <search-result></search-result>
 </template>
 
 <script>
 import SearchBar from './components/SearchBar.vue';
+import SearchResult from './components/SearchResult.vue';
 
 export default {
   name: 'App',
   components: {
     SearchBar,
+    SearchResult
   }
 }
 </script>
@@ -19,7 +21,6 @@ export default {
 * {
   font-family: 'Ruda', sans-serif;
   box-sizing: border-box;
-  font-size: 1rem;
 }
 
 #app {
