@@ -1,33 +1,9 @@
 <template>
 <main>
-  <pokemon-card
-  id="4"
-  name="charmander"
-  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-  ></pokemon-card>
-
-  <pokemon-card
-  id="4"
-  name="charmander"
-  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-  ></pokemon-card>
-
-  <pokemon-card
-  id="4"
-  name="charmander"
-  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-  ></pokemon-card>
-
-  <pokemon-card
-  id="4"
-  name="charmander"
-  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-  ></pokemon-card>
-
-  <pokemon-card
-  id="4"
-  name="charmander"
-  sprite="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  <pokemon-card v-for="pokemon in pokemonList"
+  :id="pokemon.id"
+  :name="pokemon.name"
+  :sprite="pokemon.sprites.front_default"
   ></pokemon-card>
 </main>
 </template>
@@ -36,6 +12,7 @@
 import PokemonCard from './PokemonCard.vue';
 
 export default {
+  props: ['pokemonList'],
   components: {
     PokemonCard
   }

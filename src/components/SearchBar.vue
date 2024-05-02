@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <button>Recargar Aleatorios</button>
+    <button @click="newRandom()">Recargar Aleatorios</button>
 
     <form action="">
       <div class="form-control">

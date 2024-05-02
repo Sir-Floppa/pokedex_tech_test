@@ -1,6 +1,11 @@
 <template>
-  <search-bar></search-bar>
-  <router-view></router-view>
+  <search-bar
+    @new-random="getRandom5()"
+  ></search-bar>
+
+  <router-view
+    :pokemonList="pokemonList"
+  ></router-view>
 </template>
 
 <script>
@@ -30,9 +35,6 @@ export default {
         let newPoke = await this.$api.getRandomPokemon();
         this.pokemonList.push(newPoke);
       }
-        
-      
-      console.log('RANDOM', this.pokemonList);
     }
   }
 }
