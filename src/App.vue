@@ -15,17 +15,20 @@ import SearchResult from './components/SearchResult.vue';
 export default {
   name: 'App',
   async created() {
+    // Refresca la vista de busqueda
+    this.$watch(() => this.$route.params, (newParams, oldParams) => {
+      this.tipo = this.$route.params.tipo;
+      if(this.tipo) {
+        this.getByType();
+      }
+    });
+
     // Asigna el tipo que se encuentre en la url
     this.tipo = this.$route.params.tipo;
     
     // Si hay tipo muestra pobla la lista con un tipo, sino, la pobla con 5 aleatorios.
     if(this.tipo) {
-      let listByType = await this.$api.getType(this.tipo);
-      listByType.forEach(async p => {
-        let pokemon = await this.$api.getByUrl(p.pokemon.url);
-        this.pokemonList.push(pokemon);
-      })
-
+      this.getByType()
     }
     else {
       this.getRandom5();
@@ -43,6 +46,15 @@ export default {
     SearchResult
   },
   methods: {
+    async getByType() {
+      // Vacia la lista en caso de que haya una busqueda previa
+      this.pokemonList = [];
+      let listByType = await this.$api.getType(this.tipo);
+      listByType.forEach(async p => {
+        let pokemon = await this.$api.getByUrl(p.pokemon.url);
+        this.pokemonList.push(pokemon);
+      })
+    },
     async getRandom5() {
       // Vacia la lista en caso de que haya una busqueda previa
       this.pokemonList = [];

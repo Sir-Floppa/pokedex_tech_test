@@ -25,9 +25,6 @@ export default {
       lang: 'en',
     }
   },
-  created(){ 
-    console.log(this.ability);
-  },
   methods: {
     getAbilityText(ability) {
       return this.getFlavorTextByLang(ability.flavor_text_entries)
