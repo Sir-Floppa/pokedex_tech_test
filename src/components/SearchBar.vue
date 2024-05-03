@@ -87,4 +87,9 @@ button {
     background-color: grey;
   }
 }
+select {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: .5rem;
+}
 </style>

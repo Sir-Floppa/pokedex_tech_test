@@ -1,35 +1,64 @@
 <template>
   <div class="ability">
     <div class="name-container">
-      <h1>{{ ability.name.toUpperCase() }}</h1>
+      <h1>{{ filterNameByLang(ability).toUpperCase() }}</h1>
     </div>
     <p>
       {{ getAbilityText(ability) }}
     </p>
+
+    <select v-model="lang">
+      <option
+        v-for="language in getLanguageList(ability)"
+        :value="language">
+        {{ language }}
+      </option>
+    </select>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['ability', 'lang'],
+  props: ['ability'],
+  data() {
+    return {
+      lang: 'en',
+    }
+  },
+  created(){ 
+    console.log(this.ability);
+  },
   methods: {
     getAbilityText(ability) {
-      if(ability.effect_entries.length > 0) {
-        return this.getEffectByLang(ability.effect_entries)
-      }
-      else {
-        return this.getFlavorTextByLang(ability.flavor_text_entries)
+      return this.getFlavorTextByLang(ability.flavor_text_entries)
+    },
+
+    getFlavorTextByLang(entry) {
+      if(this.filterByLang(entry) != undefined) {
+        return this.filterByLang(entry).flavor_text;
       }
     },
 
-    getEffectByLang(entries) {
-      let ans = entries.filter(entry => entry.language.name == this.lang)
-      return ans[0].short_effect;
+    filterByLang(entries) {
+      let ans = entries.filter(entry => entry.language.name == this.lang);
+      return ans[0];
     },
 
-    getFlavorTextByLang(entries) {
-      let ans = entries.filter(entry => entry.language.name == this.lang)
-      return ans[0].flavor_text;
+    filterNameByLang(ability) {
+      let namesList = ability.names;
+      namesList = namesList.filter( name => name.language.name == this.lang);
+      return namesList[0].name;
+    },
+
+    getLanguageList(ability) {
+      let languages = [];
+      ability.flavor_text_entries.forEach(entry => {
+        let lang = entry.language.name;
+        if(!languages.includes(lang)) {
+          languages.push(lang);
+        }
+      })
+      return languages;
     }
   }
 }
@@ -37,11 +66,15 @@ export default {
 
 <style>
 .ability {
-  width: 20%;
+  min-width: 35%;
+  max-width: 35%;
+  width: 35%;
   filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 0.5));
   background-color: white;
   border-radius: 1rem;
   min-width: min-content;
+  display: flex;
+  flex-direction: column;
 
 
   .name-container {
@@ -62,6 +95,13 @@ export default {
 
   p {
     margin: 1rem;
+  }
+
+  select {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    text-transform: uppercase;
   }
 
 }
