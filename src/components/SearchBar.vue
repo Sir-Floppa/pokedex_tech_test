@@ -113,7 +113,7 @@ select {
     max-width: 100vw;
     align-items: center;
     justify-content: center;
-    height: min-content;
+    height: 20vh;
     padding: 0;
 
     * {

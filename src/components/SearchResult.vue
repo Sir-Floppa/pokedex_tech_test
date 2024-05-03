@@ -36,4 +36,15 @@ main {
   margin: 0;
   padding: 1rem;
 }
+
+@media (max-width: 420px) {
+  main {
+    width: 100vw;
+    max-width: none;
+    max-height: 80vh;
+    height: 80vh;
+    flex-direction: column !important;
+    flex-wrap: nowrap;
+  }
+}
 </style>
