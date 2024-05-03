@@ -16,6 +16,18 @@ const api = {
     }
   },
 
+  async getLanguages() {
+    let res = await fetch(`${apiUrl}/language`);
+    let data = await res.json();
+    let langList = [];
+
+    data.results.forEach(result => {
+      langList.push(result.name)
+    }) 
+
+    return langList;
+  },
+
   async getRandomPokemon() {
     // genera un Id aleatorio entre 1 y 1026
     let newPokemonId = Math.floor(Math.random() * 1026 + 1);

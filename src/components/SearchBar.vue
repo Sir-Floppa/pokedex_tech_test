@@ -2,18 +2,28 @@
   <nav>
     <img src="pokeball.png" alt="">
     
+    <button @click="newRandom()">Recargar Aleatorios</button>
     <form action="">
-      <button @click="newRandom()">Recargar Aleatorios</button>
       <div class="form-control">
         <label for="tipo">Tipo</label>
         <select name="tipo" v-model="type">
-  
-          <option :value="type" v-for="type in types">{{ type.toUpperCase() }}</option>
-  
+          <option 
+            v-for="type in types"
+            :value="type" >{{ type.toUpperCase() }}</option>
         </select>
+
         <button @click="searchType">Buscar</button>
       </div>
     </form>
+    
+    <div class="form-control">
+      <label for="idioma">Idioma</label>
+      <select name="idioma" v-model="lang">
+        <option
+          v-for="lang in langs"
+          :value="lang">{{ lang }}</option>
+      </select>
+    </div>
 
 
   </nav>
@@ -24,11 +34,14 @@ export default {
   data() {
     return {
       type: '',
-      types: []
+      types: [],
+      langs: [],
+      lang: 'en'
     }
   },
   async created() {
     this.types = await this.$api.getTypes();
+    this.langs = await this.$api.getLanguages();
   },
   methods: {
     // Emite una senal que genera los nuevos Pokemon aleatorios.
@@ -110,11 +123,22 @@ select {
   nav {
     flex-direction: row;
     width: 100vw;
+    gap: 0;
     max-width: 100vw;
     align-items: center;
     justify-content: center;
     height: 20vh;
-    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .form-control {
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    select {
+      margin: 0;
+    }
 
     * {
       z-index: 2;
