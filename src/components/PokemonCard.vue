@@ -57,7 +57,7 @@ section {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 1200px) {
   section {
     flex-direction: row;
     width: 100%;

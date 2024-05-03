@@ -105,10 +105,19 @@ router-viewer {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   #app {
     height: 100vh;
     flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (max-height: 430px) {
+  #app {
+    height: 100vh;
+    min-height: 100vh;
+    flex-direction: row;
     justify-content: space-between;
   }
 }

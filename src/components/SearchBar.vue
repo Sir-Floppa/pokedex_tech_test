@@ -123,7 +123,12 @@ select {
   border-radius: .5rem;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
+  @media (max-height: 1200px) {
+    nav {
+      width: 35vw;
+    }
+  }
   nav {
     flex-direction: row;
     width: 100vw;
@@ -167,5 +172,26 @@ select {
       left: -25%;
     }
   }
+
+  @media (max-height: 800px) {
+    button {
+      padding: .5rem;
+    }
+  }
 }
+
+@media (max-height: 430px) {
+  nav {
+    img {
+      margin-right: -2rem;
+      position: fixed;
+      z-index: 0;
+      opacity: .25;
+      top: -1%;
+      left: -20%;
+    }
+  }
+}
+
+
 </style>

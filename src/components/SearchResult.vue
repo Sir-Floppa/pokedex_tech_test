@@ -37,7 +37,25 @@ main {
   padding: 1rem;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 800px) {
+  main {
+    width: 55vw;
+    flex-direction: column !important;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    width: 20vw;
+    flex-direction: column !important;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 430px) {
   main {
     width: 100vw;
     max-width: none;
