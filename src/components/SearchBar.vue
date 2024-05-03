@@ -7,10 +7,7 @@
         <label for="tipo">Tipo</label>
         <select name="tipo" id="" v-model="type">
   
-          <option value="prueba1">Prueba1</option>
-          <option value="prueba2">Prueba2</option>
-          <option value="prueba3">Prueba3</option>
-          <option value="prueba4">Prueba4</option>
+          <option :value="type" v-for="type in types">{{ type.toUpperCase() }}</option>
   
         </select>
       </div>
@@ -25,12 +22,17 @@
 export default {
   data() {
     return {
-      type: ''
+      type: '',
+      types: []
     }
+  },
+  async created() {
+    this.types = await this.$api.getTypes();
   },
   methods: {
     // Emite una senal que genera los nuevos Pokemon aleatorios.
     newRandom() {
+      this.$router.push('/')
       this.$emit('newRandom');
     },
 

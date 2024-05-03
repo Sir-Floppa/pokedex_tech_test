@@ -31,6 +31,7 @@ section {
     cursor: pointer;
     img {
       width: 110% !important;
+      filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 0.5));
     }
   }
 

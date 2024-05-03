@@ -33,7 +33,9 @@ export default {
 
       while (this.pokemonList.length < 5){
         let newPoke = await this.$api.getRandomPokemon();
-        this.pokemonList.push(newPoke);
+        if(!this.pokemonList.includes(newPoke)){
+          this.pokemonList.push(newPoke);
+        }
       }
     }
   }
@@ -45,6 +47,10 @@ export default {
 * {
   font-family: 'Ruda', sans-serif;
   box-sizing: border-box;
+}
+
+router-viewer {
+  width: 100%;
 }
 
 #app {

@@ -54,6 +54,11 @@ En estos se prueban los casos para id=1, cuyo resultado guardé en el archivo *b
 
 No hice uno para la selección aleatoria porque esa función solo llama a la funcion de conseguir con Id con un Id aleatorio. Además, no se puede predefinir una salida para algo aleatorio.
 
+### Sobre los tiempos de carga
+
+En ocasiones la aplicación da la sensación de tardar en cargar un los Pokémons, esto se debe al tiempo de respuesta de la API.
+https://github.com/PokeAPI/pokeapi/issues/339
+Se podría disimlar esperando a que la lista esté poblada para mostrar todos los Pokémons al mismo tiempo, pero siento que eso daría más sensación de lentitud que una tardanza ocasional en cargar uno o dos Pokémons.
 
 # Configuración del Proyecto 
 

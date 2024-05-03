@@ -16,7 +16,7 @@
         <h1>{{ ability.name.toUpperCase() }}</h1>
       </div>
       <p>
-        {{ getEffectByLang(ability.effect_entries) }}
+        {{ getAbilityText(ability) }}
       </p>
     </div>
   </div>
@@ -45,10 +45,23 @@ export default {
     });
   },
   methods: {
+    getAbilityText(ability) {
+      if(ability.effect_entries.length > 0) {
+        return this.getEffectByLang(ability.effect_entries)
+      }
+      else {
+        return this.getFlavorTextByLang(ability.flavor_text_entries)
+      }
+    },
+
     getEffectByLang(entries) {
       let ans = entries.filter(entry => entry.language.name == this.lang)
-      console.log(ans);
       return ans[0].short_effect;
+    },
+
+    getFlavorTextByLang(entries) {
+      let ans = entries.filter(entry => entry.language.name == this.lang)
+      return ans[0].flavor_text;
     }
   }
 }
@@ -91,7 +104,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 3rem;
     
     .ability {

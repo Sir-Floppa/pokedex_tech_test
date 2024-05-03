@@ -30,6 +30,16 @@ const api = {
     let data = await res.json();
 
     return data
+  },
+
+  // Consigue una lista con todos los tipos de Pokemon
+  async getTypes() {
+    let res = await(fetch(`${apiUrl}/type`));
+    let data = await res.json();
+    let types = []
+
+    data.results.forEach(type => types.push(type.name))
+    return types;
   }
 }
 

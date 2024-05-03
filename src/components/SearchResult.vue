@@ -30,5 +30,9 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-height: 100vh;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 1rem;
 }
 </style>
