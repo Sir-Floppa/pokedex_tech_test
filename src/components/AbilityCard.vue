@@ -36,15 +36,35 @@ export default {
 </script>
 
 <style>
-.type-card {
-  text-transform: uppercase;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: bold;
-  background-color: rgb(87, 109, 151);
-  padding: .25rem 1rem;
-  border-radius: .25rem;
-  cursor: pointer;
+.ability {
+  width: 20%;
+  filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 0.5));
+  background-color: white;
+  border-radius: 1rem;
+  min-width: min-content;
+
+
+  .name-container {
+    height: 6rem;
+    border-radius: 1rem 1rem 0 0;
+    filter: none;
+    background-color: #ef5350;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    h1 {
+      color: white;
+      background-color: #ef5350;
+      padding: 1rem;
+    }
+  }
+
+  p {
+    margin: 1rem;
+  }
+
 }
+
 
 </style>

@@ -1,12 +1,12 @@
 <template>
 <div class="pokemon-view" v-if="pokemon">
   <h1>{{ pokemon.id }}. {{ pokemon.name.toUpperCase() }}</h1>
-  <img :src="pokemon.sprites.front_default" alt="">
+  <img :src="pokemon.sprites.front_default" :alt="`${pokemon.name} sprite`">
 
   <div class="type-card-container">
-    <span class="type-card" v-for="type in pokemon.types" @click="$router.push(`/${type.type.name}`)">
-      {{ type.type.name }}
-    </span>
+    <type-card
+      v-for="type in pokemon.types"
+      :type="type"></type-card>
   </div>
 
   
@@ -21,10 +21,12 @@
 
 <script>
 import AbilityCard from './AbilityCard.vue';
+import TypeCard from './TypeCard.vue';
 
 export default {
   components: {
-    AbilityCard
+    AbilityCard,
+    TypeCard
   },
   data() {
     return {
@@ -75,35 +77,6 @@ export default {
     justify-content: center;
     align-items: flex-start;
     gap: 3rem;
-    
-    .ability {
-      width: 20%;
-      filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 0.5));
-      background-color: white;
-      border-radius: 1rem;
-      min-width: min-content;
-
-
-      .name-container {
-        height: 6rem;
-        border-radius: 1rem 1rem 0 0;
-        filter: none;
-        background-color: #ef5350;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      p {
-        margin: 1rem;
-      }
-
-      h1 {
-        color: white;
-        background-color: #ef5350;
-        padding: 1rem;
-      }
-    }
   }
 
 }
