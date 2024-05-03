@@ -4,7 +4,7 @@
   <img :src="pokemon.sprites.front_default" alt="">
 
   <div class="type-card-container">
-    <span class="type-card" v-for="type in pokemon.types">
+    <span class="type-card" v-for="type in pokemon.types" @click="$router.push(`/${type.type.name}`)">
       {{ type.type.name }}
     </span>
   </div>
