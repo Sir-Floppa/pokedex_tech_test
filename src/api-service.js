@@ -24,8 +24,8 @@ const api = {
     return randomPokemon;
   },
 
-  // Consigue una habilidad con la URL
-  async getAbilityByUrl(url) {
+  // Consigue una habilidad o pokemon con la URL
+  async getByUrl(url) {
     let res = await fetch(url);
     let data = await res.json();
 
@@ -34,12 +34,35 @@ const api = {
 
   // Consigue una lista con todos los tipos de Pokemon
   async getTypes() {
-    let res = await(fetch(`${apiUrl}/type`));
+    let res = await fetch(`${apiUrl}/type`);
     let data = await res.json();
     let types = []
 
-    data.results.forEach(type => types.push(type.name))
+    data.results.forEach(type => {
+      types.push(type.name)
+    })
     return types;
+  },
+
+  // Devuelve los pokemons de un tipo
+  async getType(type) {
+    let res = await fetch(`${apiUrl}/type/${type}/?limit=20`);
+    let data = await res.json();
+
+    return data.pokemon;
+  },
+
+  // Devuelve una lista de URL de Pokemon del tipo especificado
+  async getPokemonByType(type) {
+    let res = await fetch(`${apiUrl}/type/${type}`);
+    let data = await res.json();
+    let pokemons = []
+
+    data.pokemons.forEach(pokemon => {
+      pokemons.push(pokemon.url)
+    })
+
+    return pokemons;
   }
 }
 

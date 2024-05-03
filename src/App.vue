@@ -14,12 +14,28 @@ import SearchResult from './components/SearchResult.vue';
 
 export default {
   name: 'App',
-  created() {
-    this.getRandom5();
+  async created() {
+    // Asigna el tipo que se encuentre en la url
+    this.tipo = this.$route.params.tipo;
+    
+    // Si hay tipo muestra pobla la lista con un tipo, sino, la pobla con 5 aleatorios.
+    if(this.tipo) {
+      let listByType = await this.$api.getType(this.tipo);
+      listByType.forEach(async p => {
+        let pokemon = await this.$api.getByUrl(p.pokemon.url);
+        this.pokemonList.push(pokemon);
+      })
+
+    }
+    else {
+      this.getRandom5();
+    }
+    
   },
   data() {
     return {
       pokemonList: [],
+      tipo: undefined
     }
   },
   components: {

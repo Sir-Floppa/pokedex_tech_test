@@ -40,7 +40,7 @@ export default {
 
     // Pobla la lista de habilidades
     this.pokemon.abilities.forEach(async ability => {
-      let newAbility = await this.$api.getAbilityByUrl(ability.ability.url);
+      let newAbility = await this.$api.getByUrl(ability.ability.url);
       this.abilityList.push(newAbility);
     });
   },

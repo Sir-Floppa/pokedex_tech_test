@@ -11,4 +11,6 @@ app.use(router);
 // Agrega el servicio de API
 app.config.globalProperties.$api = api;
 
-app.mount('#app')
+router.isReady().then(() => {
+  app.mount('#app')
+})
