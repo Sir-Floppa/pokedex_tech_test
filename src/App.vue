@@ -101,4 +101,10 @@ router-viewer {
     -ms-interpolation-mode: nearest-neighbor;
   }
 }
+
+@media (max-width: 420px) {
+  #app {
+    flex-direction: column;
+  }
+}
 </style>
