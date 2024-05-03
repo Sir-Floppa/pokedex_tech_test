@@ -6,15 +6,15 @@
     <form action="">
       <div class="form-control">
         <label for="tipo">Tipo</label>
-        <select name="tipo" id="" v-model="type">
+        <select name="tipo" v-model="type">
   
           <option :value="type" v-for="type in types">{{ type.toUpperCase() }}</option>
   
         </select>
       </div>
+      <button @click="searchType">Buscar</button>
     </form>
 
-    <button @click="searchType">Buscar</button>
 
   </nav>
 </template>
@@ -62,14 +62,21 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 3rem;
+}
+
+form {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .form-control {
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 1rem;
 }
 
 button {
