@@ -41,10 +41,9 @@ main {
   main {
     width: 100vw;
     max-width: none;
-    max-height: 80vh;
-    height: 80vh;
     flex-direction: column !important;
     flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 }
 </style>

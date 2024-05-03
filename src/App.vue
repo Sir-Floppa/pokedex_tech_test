@@ -104,7 +104,9 @@ router-viewer {
 
 @media (max-width: 420px) {
   #app {
+    height: 100vh;
     flex-direction: column;
+    justify-content: space-between;
   }
 }
 </style>

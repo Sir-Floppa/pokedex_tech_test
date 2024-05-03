@@ -57,4 +57,21 @@ section {
   }
 }
 
+@media (max-width: 420px) {
+  section {
+    flex-direction: row;
+    width: 100%;
+
+    .name-container {
+      border-radius: 0 1rem 1rem 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    img {
+      width: 50%;
+    }
+  }
+}
+
 </style>
