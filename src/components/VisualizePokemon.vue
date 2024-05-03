@@ -6,7 +6,8 @@
   <div class="type-card-container">
     <type-card
       v-for="type in pokemon.types"
-      :type="type"></type-card>
+      :type="type"
+      :lang="lang"></type-card>
   </div>
 
   
@@ -24,6 +25,7 @@ import AbilityCard from './AbilityCard.vue';
 import TypeCard from './TypeCard.vue';
 
 export default {
+  props: ['lang'],
   components: {
     AbilityCard,
     TypeCard
@@ -32,8 +34,7 @@ export default {
     return {
       id: 0,
       pokemon: undefined,
-      abilityList: [],
-      lang: 'en'
+      abilityList: []
     }
   },
   async created() {

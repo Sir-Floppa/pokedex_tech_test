@@ -1,10 +1,12 @@
 <template>
   <search-bar
     @new-random="getRandom()"
+    @new-lang="(newLang) => {this.lang = newLang}"
   ></search-bar>
 
   <router-view
     :pokemonList="pokemonList"
+    :lang="lang"
   ></router-view>
 </template>
 
@@ -38,7 +40,8 @@ export default {
   data() {
     return {
       pokemonList: [],
-      tipo: undefined
+      tipo: undefined,
+      lang: 'en'
     }
   },
   components: {

@@ -42,6 +42,10 @@ export default {
   async created() {
     this.types = await this.$api.getTypes();
     this.langs = await this.$api.getLanguages();
+
+    this.$watch(() => this.lang, (newParams, oldParams) => {
+      this.$emit('newLang', newParams);
+    })
   },
   methods: {
     // Emite una senal que genera los nuevos Pokemon aleatorios.

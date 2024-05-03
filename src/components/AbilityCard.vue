@@ -6,25 +6,12 @@
     <p>
       {{ getAbilityText(ability) }}
     </p>
-
-    <select v-model="lang">
-      <option
-        v-for="language in getLanguageList(ability)"
-        :value="language">
-        {{ language }}
-      </option>
-    </select>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['ability'],
-  data() {
-    return {
-      lang: 'en',
-    }
-  },
+  props: ['ability', 'lang'],
   methods: {
     // Consigue el texto de una habilidad
     getAbilityText(ability) {
