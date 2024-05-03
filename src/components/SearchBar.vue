@@ -1,5 +1,6 @@
 <template>
   <nav>
+    <img src="pokeball.png" width="100%" alt="">
     <button @click="newRandom()">Recargar Aleatorios</button>
 
     <form action="">
@@ -55,7 +56,7 @@ nav {
   color: white;
   background-color: #ef5350;
   padding: 2rem;
-  width: 25%;
+  width: 30%;
   height: 100vh;
   display: flex;
   flex-direction: column;

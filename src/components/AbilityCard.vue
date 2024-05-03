@@ -26,27 +26,32 @@ export default {
     }
   },
   methods: {
+    // Consigue el texto de una habilidad
     getAbilityText(ability) {
       return this.getFlavorTextByLang(ability.flavor_text_entries)
     },
 
+    // Selecciona el idioma de un texto
     getFlavorTextByLang(entry) {
       if(this.filterByLang(entry) != undefined) {
         return this.filterByLang(entry).flavor_text;
       }
     },
 
+    // Filtra una lista por el idioma
     filterByLang(entries) {
       let ans = entries.filter(entry => entry.language.name == this.lang);
       return ans[0];
     },
 
+    // filtra la lista de nombres por idioma
     filterNameByLang(ability) {
       let namesList = ability.names;
       namesList = namesList.filter( name => name.language.name == this.lang);
       return namesList[0].name;
     },
 
+    // consigue la lista de idiomas de una habilidad.
     getLanguageList(ability) {
       let languages = [];
       ability.flavor_text_entries.forEach(entry => {

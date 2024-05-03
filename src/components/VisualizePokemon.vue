@@ -52,7 +52,9 @@ export default {
 <style>
 .pokemon-view {
   max-height: 100vh;
-  min-width: 80%;
+  min-width: 75%;
+  max-width: 75%;
+  width: 75%;
   display: flex;
   flex-direction: column !important;
   justify-content: space-around;

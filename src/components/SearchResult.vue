@@ -17,11 +17,12 @@ export default {
     PokemonCard
   },
 }
-
 </script>
 
 <style>
 main {
+  min-width: 75%;
+  max-width: 75%;
   width: 75%;
   display: flex;
   flex-direction: row !important;

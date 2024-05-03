@@ -1,6 +1,6 @@
 <template>
   <search-bar
-    @new-random="getRandom5()"
+    @new-random="getRandom()"
   ></search-bar>
 
   <router-view
@@ -31,7 +31,7 @@ export default {
       this.getByType()
     }
     else {
-      this.getRandom5();
+      this.getRandom();
     }
     
   },
@@ -46,6 +46,7 @@ export default {
     SearchResult
   },
   methods: {
+    // Obtiene todos los pokemon de un tipo.
     async getByType() {
       // Vacia la lista en caso de que haya una busqueda previa
       this.pokemonList = [];
@@ -55,7 +56,8 @@ export default {
         this.pokemonList.push(pokemon);
       })
     },
-    async getRandom5() {
+    // Consigue 5 pokemon aleatorios
+    async getRandom() {
       // Vacia la lista en caso de que haya una busqueda previa
       this.pokemonList = [];
 
