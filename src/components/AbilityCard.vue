@@ -1,7 +1,7 @@
 <template>
   <div class="ability">
     <div class="name-container">
-      <h1>{{ filterNameByLang(ability).toUpperCase() }}</h1>
+      <h1>{{ filterNameByLang(ability) }}</h1>
     </div>
     <p>
       {{ getAbilityText(ability) }}
@@ -35,7 +35,12 @@ export default {
     filterNameByLang(ability) {
       let namesList = ability.names;
       namesList = namesList.filter( name => name.language.name == this.lang);
-      return namesList[0].name;
+      if(namesList.length > 0) {
+        return namesList[0].name;
+      }
+      else {
+        return namesList.filter( name => name.language.name == 'en')[0].name;
+      }
     },
 
     // consigue la lista de idiomas de una habilidad.

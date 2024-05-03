@@ -1,12 +1,46 @@
 <template>
   <span class="type-card" @click="$router.push(`/${type.type.name}`)">
-    {{ type.type.name }}
+    {{ translatedType }}
   </span>
 </template>
 
 <script>
 export default {
-  props: ['type']
+  props: ['type', 'lang'],
+  async created() {
+    this.getTranslatedType();
+
+    // refresca el componente cuando cambia la traduccion
+    this.$watch(() => this.lang, (newParams, oldParams) => {
+      this.getTranslatedType();
+    })
+  },
+  data() {
+    return {
+      translatedType: undefined
+    }
+  },
+  methods: {
+    async getTranslatedType() {
+      let type = await this.$api.getByUrl(this.type.type.url);
+      this.translatedType = this.filterNamesByLang(type.names);
+    },
+    filterNamesByLang(typeNamesArr) {
+      let filterResult = typeNamesArr
+                      .filter(name => name.language.name == this.lang)[0]
+
+      let newName = filterResult.name;
+
+      if(!newName) {
+        newName = typeNamesArr
+                      .filter(name => name.language.name == 'en')[0]
+                      .name
+      }
+      
+      console.log(newName);
+      return newName;
+    }
+  }
 }
 </script>
 

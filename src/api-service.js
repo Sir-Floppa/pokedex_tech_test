@@ -25,6 +25,10 @@ const api = {
       langList.push(result.name)
     }) 
 
+    langList = langList
+                .filter(lang => lang != 'cs' & lang != 'pt-BR' && lang != 'roomaji')
+                // Estos idiomas dan problemas y no creo tener tiempo para solucionarlo ahora mismo.
+
     return langList;
   },
 
