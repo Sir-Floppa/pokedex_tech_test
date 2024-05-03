@@ -76,3 +76,11 @@ npm run serve
 ```
 npm run build
 ```
+
+### Despliegue con GH Pages
+
+El comando anterior genera la carpeta _dist_, que por simplicidad y tiempo renombraremos como _docs_.
+
+Con esto podemos hacer un push al repositorio en producción y configurar el entorno de GH Pages desde las configuraciones del repositorio.
+
+Settings >> Pages >> Deploy from branch >> "production/docs".
