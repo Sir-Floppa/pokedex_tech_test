@@ -92,12 +92,11 @@ export default {
     align-items: center;
     
     .abilities-container {
-      width: 100vw;
+      max-width: 100vw;
       height: max-content;
       overflow-x: scroll;
-      justify-content: flex-start;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      justify-content: space-around;
+      padding: 2rem;
     }
   }
 }

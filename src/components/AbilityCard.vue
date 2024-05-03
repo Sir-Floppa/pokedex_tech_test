@@ -90,7 +90,6 @@ export default {
     
     h1 {
       color: white;
-      background-color: #ef5350;
       padding: 1rem;
     }
   }
@@ -108,5 +107,9 @@ export default {
 
 }
 
-
+@media (max-width: 420px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
 </style>
