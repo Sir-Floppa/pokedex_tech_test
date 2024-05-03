@@ -81,6 +81,24 @@ export default {
     align-items: flex-start;
     gap: 3rem;
   }
+}
 
+@media (max-width: 420px) {
+  .pokemon-view {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    max-width: none;
+    align-items: center;
+    
+    .abilities-container {
+      width: 100vw;
+      height: max-content;
+      overflow-x: scroll;
+      justify-content: flex-start;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
 }
 </style>
